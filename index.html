@@ -20,7 +20,7 @@
             position: relative;
         }
 
-        /* Video de fondo con YouTube - MODIFICADO */
+        /* Video de fondo con YouTube */
         .video-background {
             position: fixed;
             top: 0;
@@ -30,7 +30,7 @@
             z-index: 1;
             overflow: hidden;
             pointer-events: none;
-            background: #000; /* Fondo negro por si falla el video */
+            background: #000;
         }
 
         .video-background iframe {
@@ -119,16 +119,6 @@
             word-wrap: break-word;
         }
 
-        .subtitle {
-            font-size: clamp(1.3rem, 3.5vw, 2.5rem);
-            color: #fff;
-            text-shadow: 
-                2px 2px 0 #000,
-                4px 4px 0 rgba(0,0,0,0.3);
-            margin: 15px 0;
-            font-weight: bold;
-        }
-
         .age-display {
             font-size: clamp(2.5rem, 7vw, 5rem);
             color: #ff6b6b;
@@ -140,7 +130,7 @@
             font-weight: bold;
         }
 
-        /* PRESENTACIÓN FOTO POR FOTO - FONDO ESPECIAL */
+        /* FONDO DE PRESENTACIÓN CON GLOBOS Y FIESTA */
         .presentation-slider {
             position: fixed;
             top: 0;
@@ -148,12 +138,19 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(78, 205, 196, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #ffd166 0%, #ff6b6b 25%, #4ecdc4 50%, #45b7d1 75%, #96ceb4 100%);
+                /* Globos de colores */
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 90% 10%, rgba(0, 255, 0, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 20% 80%, rgba(0, 0, 255, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 0, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 50% 30%, rgba(255, 0, 255, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 30% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 70% 70%, rgba(255, 165, 0, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 40% 10%, rgba(128, 0, 128, 0.4) 0%, transparent 25%),
+                /* Fondo festivo */
+                linear-gradient(135deg, #ff3366 0%, #ff9966 25%, #ffff66 50%, #66ff66 75%, #3366ff 100%);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 20s ease infinite;
             z-index: 2002;
             display: flex;
             flex-direction: column;
@@ -165,7 +162,7 @@
             overflow: hidden;
         }
 
-        /* Elementos decorativos del fondo */
+        /* Elementos decorativos de globos */
         .presentation-slider::before {
             content: '';
             position: absolute;
@@ -174,13 +171,22 @@
             width: 100%;
             height: 100%;
             background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-size="8" fill="rgba(255,215,0,0.1)" text-anchor="middle" dominant-baseline="middle">18</text></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,107,107,0.1)"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 60,40 90,40 65,60 75,90 50,70 25,90 35,60 10,40 40,40" fill="rgba(255,215,0,0.1)"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(255,0,0,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(0,255,0,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(0,0,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(255,255,0,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(255,0,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>');
             background-repeat: repeat;
-            background-size: 200px, 150px, 180px;
-            animation: floatPattern 60s linear infinite;
-            opacity: 0.3;
+            background-size: 120px 150px, 100px 130px, 140px 160px, 110px 140px, 130px 150px;
+            background-position: 
+                10% 10%,
+                80% 20%,
+                20% 80%,
+                70% 70%,
+                40% 40%,
+                60% 60%;
+            animation: floatBalloons 30s linear infinite;
+            opacity: 0.6;
             z-index: 1;
         }
 
@@ -192,8 +198,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 30%),
-                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 30%);
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
             z-index: 1;
         }
 
@@ -306,7 +313,7 @@
         }
 
         .start-presentation {
-            background: linear-gradient(45deg, #FF6B6B, #FFD700);
+            background: linear-gradient(45deg, #FF3366, #FFD700);
             border: 4px solid white;
             border-radius: 50px;
             padding: 20px 50px;
@@ -363,13 +370,47 @@
             }
         }
 
-        /* Animación para los patrones decorativos */
-        @keyframes floatPattern {
+        /* Animación para los globos */
+        @keyframes floatBalloons {
             0% {
-                background-position: 0 0, 100px 50px, 50px 100px;
+                background-position: 
+                    10% 10%,
+                    80% 20%,
+                    20% 80%,
+                    70% 70%,
+                    40% 40%;
+            }
+            25% {
+                background-position: 
+                    15% 15%,
+                    75% 25%,
+                    25% 75%,
+                    65% 65%,
+                    45% 45%;
+            }
+            50% {
+                background-position: 
+                    20% 20%,
+                    70% 30%,
+                    30% 70%,
+                    60% 60%,
+                    50% 50%;
+            }
+            75% {
+                background-position: 
+                    15% 15%,
+                    75% 25%,
+                    25% 75%,
+                    65% 65%,
+                    45% 45%;
             }
             100% {
-                background-position: 200px 200px, 300px 250px, 250px 300px;
+                background-position: 
+                    10% 10%,
+                    80% 20%,
+                    20% 80%,
+                    70% 70%,
+                    40% 40%;
             }
         }
 
@@ -384,7 +425,182 @@
             }
         }
 
-        /* GALERÍA DE FOTOS (visible después de la presentación) */
+        /* VIDEO DE YOUTUBE - PRIMERO DESPUÉS DE PRESENTACIÓN */
+        .video-section {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            border: 5px solid #FFD700;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .video-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .video-title {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 0;
+            padding: 15px 15px 10px;
+            font-weight: bold;
+            text-shadow: 3px 3px 0 #000;
+            word-wrap: break-word;
+            background: rgba(0,0,0,0.9);
+        }
+
+        .video-audio-notice {
+            background: rgba(255, 107, 107, 0.95);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 0;
+            text-align: center;
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .video-audio-notice.show {
+            opacity: 1;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Botón de pantalla completa */
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+            background: rgba(255, 215, 0, 0.9);
+            border: 2px solid #8B4513;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            color: #8B4513;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(255, 215, 0, 1);
+            transform: scale(1.1);
+        }
+
+        /* DEDICATORIA COMPACTA */
+        .dedication-box {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: rgba(0,0,0,0.9);
+            padding: clamp(20px, 5vw, 35px);
+            border-radius: 20px;
+            text-align: left;
+            border: 4px solid #FFD700;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+            display: none;
+        }
+
+        .dedication-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .dedication-title {
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .dedication-text {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #fff;
+            line-height: 1.5;
+            text-shadow: 1px 1px 0 #000;
+            word-wrap: break-word;
+        }
+
+        .dedication-text ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .dedication-text li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .dedication-text li::before {
+            content: "🎉";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+        }
+
+        .dedication-text li:last-child {
+            margin-bottom: 0;
+        }
+
+        .dedication-signature {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #FFD700;
+            text-align: center;
+        }
+
+        .signature-name {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #FF6B6B;
+            font-weight: bold;
+            text-shadow: 2px 2px 0 #000;
+            font-style: italic;
+        }
+
+        /* GALERÍA DE FOTOS (después de la dedicatoria) */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
@@ -395,12 +611,14 @@
             width: 100%;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
+            display: none;
         }
 
         .photo-gallery.visible {
             opacity: 1;
             transform: translateY(0);
+            display: grid;
         }
 
         .photo-frame {
@@ -789,101 +1007,6 @@
             font-weight: bold;
         }
 
-        /* VIDEO DE YOUTUBE CON CONTROL DE AUDIO - MODIFICADO */
-        .video-section {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 25px;
-            border: 5px solid #FFD700;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .video-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .video-title {
-            font-size: clamp(1.5rem, 4vw, 3rem);
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 0;
-            padding: 15px 15px 10px;
-            font-weight: bold;
-            text-shadow: 3px 3px 0 #000;
-            word-wrap: break-word;
-            background: rgba(0,0,0,0.9);
-        }
-
-        .video-audio-notice {
-            background: rgba(255, 107, 107, 0.95);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 0;
-            text-align: center;
-            margin-bottom: 0;
-            font-weight: bold;
-            font-size: 1rem;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .video-audio-notice.show {
-            opacity: 1;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 0;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Botón de pantalla completa */
-        .fullscreen-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 100;
-            background: rgba(255, 215, 0, 0.9);
-            border: 2px solid #8B4513;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            color: #8B4513;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .fullscreen-btn:hover {
-            background: rgba(255, 215, 0, 1);
-            transform: scale(1.1);
-        }
-
         /* NOTIFICACIÓN DE AUDIO */
         .audio-notice {
             position: fixed;
@@ -931,33 +1054,6 @@
             margin: 0 8px;
         }
 
-        .message-box {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: rgba(0,0,0,0.8);
-            padding: clamp(25px, 6vw, 50px);
-            border-radius: 25px;
-            text-align: center;
-            border: 5px solid #FFD700;
-            width: 100%;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out 0.8s, transform 0.8s ease-out 0.8s;
-        }
-
-        .message-box.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .message-text {
-            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
-            color: #fff;
-            line-height: 1.9;
-            text-shadow: 2px 2px 0 #000;
-            word-wrap: break-word;
-        }
-
         .footer {
             max-width: 1000px;
             margin: 30px auto;
@@ -969,11 +1065,13 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s;
+            display: none;
         }
 
         .footer.visible {
             opacity: 1;
             transform: translateY(0);
+            display: block;
         }
 
         .footer-text {
@@ -1134,6 +1232,16 @@
                 font-size: clamp(1.3rem, 4vw, 2.5rem);
             }
             
+            .dedication-box {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            
+            .dedication-text li {
+                padding-left: 25px;
+                margin-bottom: 6px;
+            }
+            
             /* Mejoras para dispositivos móviles */
             .slide-btn {
                 min-width: 60px;
@@ -1242,6 +1350,18 @@
                 right: 8px;
             }
             
+            .dedication-box {
+                padding: 12px;
+                margin: 15px auto;
+                border-radius: 15px;
+            }
+            
+            .dedication-text li {
+                padding-left: 20px;
+                margin-bottom: 5px;
+                font-size: 0.9rem;
+            }
+            
             /* Mejoras adicionales para móviles pequeños */
             .photo-frame {
                 cursor: pointer;
@@ -1254,7 +1374,7 @@
     </style>
 </head>
 <body>
-    <!-- Video de fondo silenciado - URL CORREGIDA -->
+    <!-- Video de fondo silenciado -->
     <div class="video-background" id="videoBackground">
         <iframe 
             src="https://www.youtube.com/embed/XJqx8nnppE0?autoplay=1&mute=1&loop=1&playlist=XJqx8nnppE0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
@@ -1342,7 +1462,53 @@
             <div class="age-display">18 AÑOS</div>
         </div>
 
-        <!-- Galería de fotos -->
+        <!-- VIDEO DE YOUTUBE - PRIMERO DESPUÉS DE PRESENTACIÓN -->
+        <div class="video-section" id="videoSection">
+            <div class="video-title">🎮 VIDEO ESPECIAL MINECRAFT PARA EMMANUEL 🎮</div>
+            
+            <div class="video-audio-notice" id="videoAudioNotice">
+                🎬🎉🎂 Video especial dedicado a ti por tus 18 años 🎂🎉 Atte.: Norbey 🎈🎉
+            </div>
+            
+            <!-- Botón de pantalla completa -->
+            <button class="fullscreen-btn" id="fullscreenBtn" title="Pantalla completa">
+                ⛶
+            </button>
+            
+            <div class="video-container">
+                <!-- Video CON autoplay mejorado -->
+                <iframe 
+                    id="mainVideo"
+                    src="https://www.youtube.com/embed/XJqx8nnppE0?rel=0&modestbranding=1&mute=0&enablejsapi=1&autoplay=0&playsinline=1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    title="Video especial de cumpleaños">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- DEDICATORIA COMPACTA -->
+        <div class="dedication-box" id="dedicationBox">
+            <div class="dedication-title">🎂 DEDICATORIA ESPECIAL 🎂</div>
+            <div class="dedication-text">
+                <ul>
+                    <li>Hoy celebramos 18 años de tu vida, 18 años de risas, aventuras y momentos inolvidables.</li>
+                    <li>Desde aquel 18 de enero del 2008, has llenado la vida de todos de alegría.</li>
+                    <li>Aunque no eres mi hijo de sangre, eres mi hijo del corazón.</li>
+                    <li>Te quiero muchísimo y estoy muy orgulloso de la persona increíble que eres.</li>
+                    <li>Que este nuevo año te traiga mucha felicidad, éxito y bendiciones.</li>
+                    <li>Ya eres mayor de edad, que comiences esta nueva etapa con fuerza.</li>
+                    <li>¡FELIZ CUMPLEAÑOS! 🎈🎉🎁</li>
+                    <li>18 de Enero de 2025</li>
+                </ul>
+                
+                <div class="dedication-signature">
+                    <div class="signature-name">NORBEY CUERVO RAMIREZ</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALERÍA DE FOTOS (después de la dedicatoria) -->
         <div class="photo-gallery" id="photoGallery">
             <!-- Fotos 1-18 -->
             <div class="photo-frame">
@@ -1460,55 +1626,10 @@
             </div>
         </div>
 
-        <!-- VIDEO DE YOUTUBE - MODIFICADO -->
-        <div class="video-section" id="videoSection">
-            <div class="video-title">🎮 VIDEO ESPECIAL MINECRAFT PARA EMMANUEL 🎮</div>
-            
-            <div class="video-audio-notice" id="videoAudioNotice">
-                🎬🎉🎂 Video especial dedicado a ti por tus 18 años 🎂🎉 Atte.: Norbey 🎈🎉
-            </div>
-            
-            <!-- Botón de pantalla completa -->
-            <button class="fullscreen-btn" id="fullscreenBtn" title="Pantalla completa">
-                ⛶
-            </button>
-            
-            <div class="video-container">
-                <!-- Video CON autoplay mejorado -->
-                <iframe 
-                    id="mainVideo"
-                    src="https://www.youtube.com/embed/XJqx8nnppE0?rel=0&modestbranding=1&mute=0&enablejsapi=1&autoplay=0&playsinline=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    title="Video especial de cumpleaños">
-                </iframe>
-            </div>
-        </div>
-
-        <div class="message-box" id="messageBox">
-            <div class="message-text">
-                🎂 Emmanuel 🎂<br><br>
-                Hoy celebramos 18 años de tu vida,<br>
-                18 años de risas, aventuras y momentos inolvidables.<br><br>
-                Desde aquel 18 de enero del 2008,<br>
-                has llenado la vida de todos de alegría.<br><br>
-                Aunque no eres mi hijo de sangre,<br>
-                eres mi hijo del corazón.<br><br>
-                Te quiero muchísimo y estoy muy orgulloso<br>
-                de la persona increíble que eres.<br><br>
-                Que este nuevo año te traiga<br>
-                mucha felicidad, éxito y bendiciones.<br><br>
-                Ya eres mayor de edad,<br>
-                que comiences esta nueva etapa con fuerza.<br><br>
-                ¡FELIZ CUMPLEAÑOS! 🎈🎉🎁<br>
-                18 de Enero de 2025
-            </div>
-        </div>
-
         <div class="footer" id="footer">
             <div class="footer-text">
                 💙 Siempre contarás conmigo 💙<br>
-                Att. Norbey
+                Att. Norbey Cuervo Ramírez
             </div>
         </div>
     </div>
@@ -1524,9 +1645,9 @@
         const skipPresentation = document.getElementById('skipPresentation');
         const startPresentation = document.getElementById('startPresentation');
         const mainContainer = document.getElementById('mainContainer');
-        const photoGallery = document.getElementById('photoGallery');
         const videoSection = document.getElementById('videoSection');
-        const messageBox = document.getElementById('messageBox');
+        const dedicationBox = document.getElementById('dedicationBox');
+        const photoGallery = document.getElementById('photoGallery');
         const footer = document.getElementById('footer');
         const videoBackground = document.getElementById('videoBackground');
         
@@ -1586,8 +1707,10 @@
             // Si es la última foto, cambiar texto del botón siguiente
             if (n === totalSlides - 1) {
                 document.getElementById('nextBtn').textContent = '🎉 Finalizar 🎉';
+                document.getElementById('nextBtn').style.fontSize = '1.8rem';
             } else {
                 document.getElementById('nextBtn').textContent = '›';
+                document.getElementById('nextBtn').style.fontSize = '2.5rem';
             }
         }
 
@@ -1629,22 +1752,42 @@
             presentationActive = false;
             presentationSlider.classList.add('hidden');
             
-            // Mostrar contenido principal con animaciones
+            // Pausar el audio de fondo (cumple.mp4)
+            if (audioPlaying) {
+                pauseAudio();
+            }
+            
+            // Mostrar contenido en el orden correcto:
+            // 1. Video
+            // 2. Dedicatoria
+            // 3. Galería de fotos
+            // 4. Footer
+            
             setTimeout(() => {
-                photoGallery.classList.add('visible');
                 videoSection.classList.add('visible');
-                messageBox.classList.add('visible');
-                footer.classList.add('visible');
                 
-                // Crear animaciones para foto 35
-                createPhoto35Animations();
-                
-                // Configurar zoom de fotos
-                setupPhotoZoom();
-                
-                // Configurar observadores
-                setupObservers();
-            }, 500);
+                setTimeout(() => {
+                    dedicationBox.classList.add('visible');
+                    
+                    setTimeout(() => {
+                        photoGallery.classList.add('visible');
+                        
+                        setTimeout(() => {
+                            footer.classList.add('visible');
+                            
+                            // Crear animaciones para foto 35
+                            createPhoto35Animations();
+                            
+                            // Configurar zoom de fotos
+                            setupPhotoZoom();
+                            
+                            // Configurar video para autoplay
+                            setupVideoAutoplay();
+                            
+                        }, 300); // Delay para galería
+                    }, 300); // Delay para dedicatoria
+                }, 300); // Delay para video
+            }, 500); // Delay general después de la presentación
         }
 
         function skipPresentationFunc() {
@@ -1688,7 +1831,10 @@
                 audioPlaying = false;
                 audioControl.textContent = '🔇';
                 audioControl.title = 'Reproducir música de fondo';
-                console.log('⏸️ Audio pausado');
+                console.log('⏸️ Audio pausado permanentemente');
+                
+                // Cambiar el comportamiento del control de audio
+                audioControl.title = 'Música pausada por video. Toca para reproducir música de fondo';
             }
         }
 
@@ -1698,7 +1844,7 @@
                     audioPlaying = true;
                     audioControl.textContent = '🔊';
                     audioControl.title = 'Pausar música de fondo';
-                    console.log('▶️ Audio reanudado');
+                    console.log('▶️ Audio reanudado manualmente por usuario');
                 });
             }
         }
@@ -1727,67 +1873,32 @@
         }
 
         // ==============================
-        // OBSERVADORES PARA CONTROLAR AUDIO
+        // CONFIGURAR VIDEO PARA AUTOPLAY
         // ==============================
-        const mainVideo = document.getElementById('mainVideo');
-        const videoAudioNotice = document.getElementById('videoAudioNotice');
-        let videoStarted = false;
-
-        // Observador para el video - pausa audio cuando llega
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !videoStarted && !presentationActive) {
-                    // El usuario ha llegado a la sección del video
-                    videoStarted = true;
-                    
-                    // Mostrar notificación
-                    videoAudioNotice.classList.add('show');
-                    
-                    // Pausar el audio de fondo (PERMANENTEMENTE hasta que el usuario lo active manualmente)
-                    if (audioPlaying) {
-                        pauseAudio();
-                        console.log('⏸️ Audio de fondo pausado para el video - Solo se reanudará manualmente');
-                    }
-                    
-                    // Activar autoplay del video después de un breve retraso
-                    setTimeout(() => {
-                        // Crear URL del video con autoplay
-                        const currentSrc = mainVideo.src;
-                        // Si ya tiene autoplay, no hacer nada
-                        if (!currentSrc.includes('autoplay=1')) {
-                            const newSrc = currentSrc.replace('autoplay=0', 'autoplay=1') + '&autoplay=1';
-                            mainVideo.src = newSrc;
-                        }
-                        
-                        console.log('🎮 Video de Minecraft iniciado automáticamente');
-                        
-                        // Ocultar notificación después de 5 segundos
-                        setTimeout(() => {
-                            videoAudioNotice.classList.remove('show');
-                        }, 5000);
-                        
-                    }, 1000);
+        function setupVideoAutoplay() {
+            const mainVideo = document.getElementById('mainVideo');
+            const videoAudioNotice = document.getElementById('videoAudioNotice');
+            
+            // Esperar un momento para que la sección sea visible
+            setTimeout(() => {
+                // Mostrar notificación del video
+                videoAudioNotice.classList.add('show');
+                
+                // Configurar el video para autoplay
+                const currentSrc = mainVideo.src;
+                if (!currentSrc.includes('autoplay=1')) {
+                    const newSrc = currentSrc.replace('autoplay=0', 'autoplay=1') + '&autoplay=1';
+                    mainVideo.src = newSrc;
                 }
-            });
-        }, {
-            threshold: 0.6,
-            rootMargin: '100px'
-        });
-
-        // Observador para el mensaje - NO reanuda audio automáticamente
-        const messageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !presentationActive) {
-                    // El usuario ha llegado al mensaje
-                    // NOTA: No reanudamos el audio automáticamente
-                    // El usuario debe hacer clic manualmente en el control de audio para reanudar
-                    console.log('📝 Sección de mensaje visible - Audio permanece en su estado actual');
-                }
-            });
-        }, {
-            threshold: 0.3,
-            rootMargin: '100px'
-        });
+                
+                console.log('🎮 Video de Minecraft iniciado automáticamente');
+                
+                // Ocultar notificación después de 5 segundos
+                setTimeout(() => {
+                    videoAudioNotice.classList.remove('show');
+                }, 5000);
+            }, 1000);
+        }
 
         // ==============================
         // EVENT LISTENERS
@@ -1836,12 +1947,6 @@
             document.addEventListener('click', loadBackgroundVideo);
             document.addEventListener('touchstart', loadBackgroundVideo);
         });
-
-        // Configurar observadores cuando termina la presentación
-        function setupObservers() {
-            videoObserver.observe(videoSection);
-            messageObserver.observe(messageBox);
-        }
 
         // ==============================
         // ANIMACIONES ESPECIALES PARA FOTO 35
