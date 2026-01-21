@@ -437,12 +437,12 @@
             transform: scale(1.1);
         }
 
-        /* DEDICATORIA CENTRADA */
+        /* DEDICATORIA COMPLETAMENTE CENTRADA */
         .dedication-box {
             max-width: 1000px;
             margin: 30px auto;
-            background: rgba(0,0,0,0.9);
-            padding: clamp(25px, 5vw, 40px);
+            background: rgba(0,0,0,0.92);
+            padding: clamp(30px, 6vw, 50px);
             border-radius: 25px;
             text-align: center;
             border: 5px solid #FFD700;
@@ -451,6 +451,7 @@
             transform: translateY(20px);
             transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
             display: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
         }
 
         .dedication-box.visible {
@@ -460,62 +461,186 @@
         }
 
         .dedication-title {
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             color: #FFD700;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: bold;
-            text-shadow: 2px 2px 0 #000;
+            text-shadow: 
+                2px 2px 0 #000,
+                0 0 10px #FF6B6B,
+                0 0 20px #FF6B6B;
+            letter-spacing: 1px;
+            animation: titleGlow 2s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 
+                    2px 2px 0 #000,
+                    0 0 10px #FF6B6B,
+                    0 0 20px #FF6B6B;
+            }
+            100% {
+                text-shadow: 
+                    2px 2px 0 #000,
+                    0 0 20px #FFD700,
+                    0 0 40px #FFD700,
+                    0 0 60px #FF6B6B;
+            }
         }
 
         .dedication-text {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-size: clamp(1.2rem, 2.8vw, 1.5rem);
             color: #fff;
             line-height: 1.6;
-            text-shadow: 1px 1px 0 #000;
+            text-shadow: 1px 1px 2px #000;
             word-wrap: break-word;
+            text-align: center;
         }
 
-        .dedication-text ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin: 0;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .dedication-text li {
-            margin-bottom: 10px;
+        .dedication-text p {
+            margin: 15px 0;
+            padding: 10px 0;
             position: relative;
-            padding-left: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .dedication-text li::before {
-            content: "🎉";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.3em;
+        .dedication-text p::before {
+            content: "✨";
+            margin-right: 15px;
+            font-size: 1.4em;
+            animation: starTwinkle 2s infinite;
         }
 
-        .dedication-text li:last-child {
-            margin-bottom: 0;
+        @keyframes starTwinkle {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scale(1.3);
+                opacity: 1;
+            }
         }
 
+        /* NOMBRE ESPECIAL - BRILLANTE Y LLAMATIVO */
         .dedication-signature {
-            margin-top: 30px;
-            padding-top: 20px;
+            margin-top: 35px;
+            padding-top: 25px;
             border-top: 3px solid #FFD700;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .signature-name {
-            font-size: clamp(1.3rem, 3vw, 2rem);
-            color: #FF6B6B;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #FFD700;
             font-weight: bold;
-            text-shadow: 2px 2px 0 #000;
+            text-shadow: 
+                0 0 10px #FF6B6B,
+                0 0 20px #FF6B6B,
+                0 0 30px #FF6B6B,
+                0 0 40px #FF6B6B,
+                2px 2px 0 #000;
             font-style: italic;
             text-align: center;
+            letter-spacing: 1px;
+            animation: signatureGlow 3s infinite alternate, signatureFloat 4s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, 
+                rgba(255, 107, 107, 0.2) 0%, 
+                rgba(255, 215, 0, 0.2) 25%, 
+                rgba(78, 205, 196, 0.2) 50%, 
+                rgba(255, 107, 107, 0.2) 75%, 
+                rgba(255, 215, 0, 0.2) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 
+                0 0 20px rgba(255, 107, 107, 0.5),
+                0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes signatureGlow {
+            0% {
+                text-shadow: 
+                    0 0 10px #FF6B6B,
+                    0 0 20px #FF6B6B,
+                    0 0 30px #FF6B6B,
+                    0 0 40px #FF6B6B,
+                    2px 2px 0 #000;
+                color: #FF6B6B;
+                border-color: rgba(255, 107, 107, 0.8);
+                box-shadow: 
+                    0 0 20px rgba(255, 107, 107, 0.7),
+                    0 0 40px rgba(255, 215, 0, 0.5);
+            }
+            25% {
+                text-shadow: 
+                    0 0 15px #FFD700,
+                    0 0 30px #FFD700,
+                    0 0 45px #FFD700,
+                    0 0 60px #FFD700,
+                    2px 2px 0 #000;
+                color: #FFD700;
+                border-color: rgba(255, 215, 0, 0.8);
+                box-shadow: 
+                    0 0 25px rgba(255, 215, 0, 0.8),
+                    0 0 50px rgba(78, 205, 196, 0.5);
+            }
+            50% {
+                text-shadow: 
+                    0 0 15px #4ecdc4,
+                    0 0 30px #4ecdc4,
+                    0 0 45px #4ecdc4,
+                    0 0 60px #4ecdc4,
+                    2px 2px 0 #000;
+                color: #4ecdc4;
+                border-color: rgba(78, 205, 196, 0.8);
+                box-shadow: 
+                    0 0 25px rgba(78, 205, 196, 0.8),
+                    0 0 50px rgba(255, 107, 107, 0.5);
+            }
+            75% {
+                text-shadow: 
+                    0 0 15px #FF6B6B,
+                    0 0 30px #FF6B6B,
+                    0 0 45px #FF6B6B,
+                    0 0 60px #FF6B6B,
+                    2px 2px 0 #000;
+                color: #FF6B6B;
+                border-color: rgba(255, 107, 107, 0.8);
+                box-shadow: 
+                    0 0 25px rgba(255, 107, 107, 0.8),
+                    0 0 50px rgba(255, 215, 0, 0.5);
+            }
+            100% {
+                text-shadow: 
+                    0 0 20px #FFD700,
+                    0 0 40px #FFD700,
+                    0 0 60px #FFD700,
+                    0 0 80px #FFD700,
+                    2px 2px 0 #000;
+                color: #FFD700;
+                border-color: rgba(255, 215, 0, 0.9);
+                box-shadow: 
+                    0 0 30px rgba(255, 215, 0, 0.9),
+                    0 0 60px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        @keyframes signatureFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-5px) scale(1.02);
+            }
         }
 
         /* GALERÍA DE FOTOS (después de la dedicatoria) */
@@ -580,73 +705,13 @@
         .photo-frame:nth-child(20) { animation-delay: 2.0s; }
         .photo-frame:nth-child(21) { animation-delay: 2.1s; }
 
-        /* FOTO 35 - ESPECIAL - MÁS IMPORTANTE - SIEMPRE VISIBLE */
+        /* FOTO 35 - IGUAL A LAS DEMÁS PERO CON EFECTOS ESPECIALES */
         .photo-frame:nth-child(20) {
-            border: 8px solid #FF6B6B;
+            border: 6px solid #FF6B6B;
             animation: photo35Glow 3s infinite alternate, slideUp 0.8s ease-out forwards;
             animation-delay: 0s, 1.9s;
             position: relative;
-            z-index: 50 !important; /* VALOR MUY ALTO PARA SOBREPONERSE */
-            grid-column: 1 / -1; /* OCUPA TODA LA FILA */
-        }
-
-        /* FOTO 35 AMPLIADA Y SOBREPUESTA */
-        .photo-frame.photo35-expanded {
-            position: fixed !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) scale(1.2) !important;
-            width: 90vw !important;
-            height: auto !important;
-            max-width: 800px !important;
-            z-index: 9999 !important;
-            animation: photo35Expand 0.5s ease-out forwards !important;
-            border: 10px solid #FFD700 !important;
-            box-shadow: 
-                0 0 60px #FF6B6B,
-                0 0 100px rgba(255, 107, 107, 0.8), 
-                0 0 150px rgba(255, 107, 107, 0.6) !important;
-        }
-
-        @keyframes photo35Expand {
-            0% {
-                transform: translate(-50%, -50%) scale(0.5);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        /* Botón para minimizar la foto 35 */
-        .minimize-photo35 {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 107, 107, 0.95);
-            border: 3px solid #FFD700;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: all 0.3s;
-            display: none;
-        }
-
-        .photo-frame.photo35-expanded .minimize-photo35 {
-            display: flex;
-        }
-
-        .minimize-photo35:hover {
-            transform: scale(1.1);
-            background: rgba(255, 107, 107, 1);
+            z-index: 50;
         }
 
         @keyframes photo35Glow {
@@ -713,7 +778,7 @@
             .photo-frame:nth-child(20):hover {
                 transform: scale(1.1) rotate(2deg);
                 animation: photo35Hover 0.5s infinite alternate;
-                z-index: 200 !important;
+                z-index: 200;
             }
         }
 
@@ -726,7 +791,7 @@
             }
         }
 
-        /* IMÁGENES */
+        /* IMÁGENES - TODAS IGUALES INCLUYENDO FOTO 35 */
         .photo-frame img {
             width: 100%;
             height: 380px;
@@ -735,11 +800,6 @@
             display: block;
             flex-shrink: 0;
             transition: transform 0.5s, filter 0.5s;
-        }
-
-        /* FOTO 35 - IMAGEN MÁS GRANDE */
-        .photo-frame:nth-child(20) img {
-            height: 450px; /* MÁS ALTA QUE LAS OTRAS */
         }
 
         /* Indicador de clic */
@@ -774,8 +834,8 @@
             color: white;
             font-size: 1.8rem;
             animation: pulseIndicator 1.5s infinite;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
         }
 
         @keyframes pulseIndicator {
@@ -812,12 +872,10 @@
             background: linear-gradient(45deg, #FF6B6B, #FF3333, #FF6B6B);
             background-size: 200% 200%;
             color: #FFF;
-            font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+            font-size: clamp(1.1rem, 2.8vw, 1.5rem);
             font-weight: bold;
             border-top: 4px solid #FFD700;
             animation: captionGradient 3s infinite linear;
-            min-height: 110px;
-            padding: 20px;
         }
 
         @keyframes captionGradient {
@@ -835,7 +893,7 @@
         /* NÚMEROS 18 FLOTANTES PARA FOTO 35 */
         .floating-18 {
             position: absolute;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #FFD700;
             text-shadow: 
@@ -891,8 +949,8 @@
 
         .particle {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             animation: floatParticle 4s infinite linear;
         }
@@ -1183,22 +1241,8 @@
                 height: 350px;
             }
 
-            /* FOTO 35 MÓVIL */
-            .photo-frame:nth-child(20) {
-                grid-column: 1;
-            }
-
-            .photo-frame:nth-child(20) img {
-                height: 400px;
-            }
-
-            .photo-frame.photo35-expanded {
-                width: 95vw !important;
-                transform: translate(-50%, -50%) scale(1) !important;
-            }
-
             .floating-18 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
 
             .click-indicator {
@@ -1209,6 +1253,8 @@
 
             .photo-frame:nth-child(20) .click-indicator {
                 font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
             }
 
             .audio-control {
@@ -1237,13 +1283,23 @@
             }
             
             .dedication-box {
-                padding: 20px;
+                padding: 25px;
                 margin: 20px auto;
             }
             
-            .dedication-text li {
-                padding-left: 30px;
-                margin-bottom: 8px;
+            .dedication-text p {
+                margin: 12px 0;
+                padding: 8px 0;
+            }
+            
+            .dedication-text p::before {
+                margin-right: 10px;
+                font-size: 1.2em;
+            }
+            
+            .signature-name {
+                padding: 12px 20px;
+                font-size: clamp(1.5rem, 4vw, 2rem);
             }
             
             /* Mejoras para dispositivos móviles */
@@ -1298,13 +1354,8 @@
                 height: 320px;
             }
 
-            /* FOTO 35 MÓVIL PEQUEÑO */
-            .photo-frame:nth-child(20) img {
-                height: 380px;
-            }
-
             .floating-18 {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
 
             .click-indicator {
@@ -1316,8 +1367,8 @@
             }
 
             .photo-frame:nth-child(20) .click-indicator {
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
                 font-size: 1.3rem;
             }
 
@@ -1360,15 +1411,25 @@
             }
             
             .dedication-box {
-                padding: 15px;
+                padding: 20px;
                 margin: 15px auto;
                 border-radius: 15px;
             }
             
-            .dedication-text li {
-                padding-left: 25px;
-                margin-bottom: 6px;
+            .dedication-text p {
+                margin: 10px 0;
+                padding: 6px 0;
                 font-size: 1rem;
+            }
+            
+            .dedication-text p::before {
+                margin-right: 8px;
+                font-size: 1.1em;
+            }
+            
+            .signature-name {
+                padding: 10px 15px;
+                font-size: clamp(1.3rem, 4vw, 1.8rem);
             }
             
             /* Mejoras adicionales para móviles pequeños */
@@ -1499,20 +1560,19 @@
             </div>
         </div>
 
-        <!-- DEDICATORIA CENTRADA -->
+        <!-- DEDICATORIA COMPLETAMENTE CENTRADA Y CON NOMBRE BRILLANTE -->
         <div class="dedication-box" id="dedicationBox">
             <div class="dedication-title">🎂 DEDICATORIA ESPECIAL 🎂</div>
+            
             <div class="dedication-text">
-                <ul>
-                    <li>Hoy celebramos 18 años de tu vida, 18 años de risas, aventuras y momentos inolvidables.</li>
-                    <li>Desde aquel 18 de enero del 2008, has llenado la vida de todos de alegría.</li>
-                    <li>Aunque no eres mi hijo de sangre, eres mi hijo del corazón.</li>
-                    <li>Te quiero muchísimo y estoy muy orgulloso de la persona increíble que eres.</li>
-                    <li>Que este nuevo año te traiga mucha felicidad, éxito y bendiciones.</li>
-                    <li>Ya eres mayor de edad, que comiences esta nueva etapa con fuerza.</li>
-                    <li>¡FELIZ CUMPLEAÑOS! 🎈🎉🎁</li>
-                    <li>18 de Enero de 2025</li>
-                </ul>
+                <p>Hoy celebramos 18 años de tu vida, 18 años de risas, aventuras y momentos inolvidables.</p>
+                <p>Desde aquel 18 de enero del 2008, has llenado la vida de todos de alegría.</p>
+                <p>Aunque no eres mi hijo de sangre, eres mi hijo del corazón.</p>
+                <p>Te quiero muchísimo y estoy muy orgulloso de la persona increíble que eres.</p>
+                <p>Que este nuevo año te traiga mucha felicidad, éxito y bendiciones.</p>
+                <p>Ya eres mayor de edad, que comiences esta nueva etapa con fuerza.</p>
+                <p>¡FELIZ CUMPLEAÑOS! 🎈🎉🎁</p>
+                <p>18 de Enero de 2025</p>
                 
                 <div class="dedication-signature">
                     <div class="signature-name">NORBEY CUERVO RAMIREZ</div>
@@ -1621,11 +1681,9 @@
                 <div class="photo-caption">🌟 Eres un joven ejemplar, con valores y principios sólidos 🌟</div>
             </div>
             
-            <!-- FOTO 35 - LA MÁS IMPORTANTE - NO DESAPARECE -->
+            <!-- FOTO 35 - IGUAL A LAS DEMÁS PERO CON EFECTOS ESPECIALES -->
             <div class="photo-frame" id="photo35">
                 <div class="click-indicator">🌟</div>
-                <!-- Botón para minimizar cuando esté expandida -->
-                <div class="minimize-photo35" id="minimizePhoto35">✕</div>
                 <!-- Partículas y números 18 se agregan con JavaScript -->
                 <img src="35.jpeg" alt="Emmanuel actual" loading="lazy">
                 <div class="photo-caption">🌟 ERES UN JOVEN INCREÍBLE. ¡ME SIENTO MUY ORGULLOSO DE TI! 🌟</div>
@@ -1664,7 +1722,6 @@
         const photoGallery = document.getElementById('photoGallery');
         const footer = document.getElementById('footer');
         const videoBackground = document.getElementById('videoBackground');
-        const minimizePhoto35 = document.getElementById('minimizePhoto35');
         const photo35 = document.getElementById('photo35');
         
         let audioPlaying = false;
@@ -1672,7 +1729,6 @@
         let presentationActive = true;
         let currentSlide = 0;
         const totalSlides = document.querySelectorAll('.slide-image').length;
-        let isPhoto35Expanded = false;
         
         // Textos para cada slide de la presentación
         const slideCaptions = [
@@ -1708,7 +1764,7 @@
                 particlesJS('particles-js', {
                     particles: {
                         number: {
-                            value: 150,
+                            value: 120,
                             density: {
                                 enable: true,
                                 value_area: 800
@@ -1718,17 +1774,14 @@
                             value: ['#ff3366', '#ff9966', '#ffff66', '#66ff66', '#3366ff', '#9966ff', '#ff66ff']
                         },
                         shape: {
-                            type: ['circle', 'triangle', 'polygon'],
+                            type: ['circle', 'triangle'],
                             stroke: {
                                 width: 0,
                                 color: '#000000'
-                            },
-                            polygon: {
-                                nb_sides: 5
                             }
                         },
                         opacity: {
-                            value: 0.7,
+                            value: 0.6,
                             random: true,
                             anim: {
                                 enable: true,
@@ -1738,7 +1791,7 @@
                             }
                         },
                         size: {
-                            value: 8,
+                            value: 6,
                             random: true,
                             anim: {
                                 enable: true,
@@ -1749,14 +1802,14 @@
                         },
                         line_linked: {
                             enable: true,
-                            distance: 150,
+                            distance: 120,
                             color: '#ffffff',
-                            opacity: 0.4,
+                            opacity: 0.3,
                             width: 1
                         },
                         move: {
                             enable: true,
-                            speed: 3,
+                            speed: 2.5,
                             direction: 'none',
                             random: true,
                             straight: false,
@@ -1784,13 +1837,13 @@
                         },
                         modes: {
                             grab: {
-                                distance: 140,
+                                distance: 120,
                                 line_linked: {
-                                    opacity: 1
+                                    opacity: 0.8
                                 }
                             },
                             push: {
-                                particles_nb: 4
+                                particles_nb: 3
                             }
                         }
                     },
@@ -1906,9 +1959,6 @@
                             // Configurar video para autoplay
                             setupVideoAutoplay();
                             
-                            // Configurar evento especial para foto 35
-                            setupPhoto35Special();
-                            
                         }, 300); // Delay para galería
                     }, 300); // Delay para dedicatoria
                 }, 300); // Delay para video
@@ -2023,67 +2073,6 @@
         }
 
         // ==============================
-        // FOTO 35 ESPECIAL - NO DESAPARECE
-        // ==============================
-        function setupPhoto35Special() {
-            if (!photo35) return;
-            
-            // Click en foto 35 para expandirla
-            photo35.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                if (!isPhoto35Expanded) {
-                    // Expandir foto 35
-                    expandPhoto35();
-                }
-            });
-            
-            // Botón para minimizar
-            minimizePhoto35.addEventListener('click', function(e) {
-                e.stopPropagation();
-                minimizePhoto35Func();
-            });
-            
-            // También permitir minimizar haciendo clic fuera cuando está expandida
-            document.addEventListener('click', function(e) {
-                if (isPhoto35Expanded && !photo35.contains(e.target)) {
-                    minimizePhoto35Func();
-                }
-            });
-        }
-
-        function expandPhoto35() {
-            isPhoto35Expanded = true;
-            photo35.classList.add('photo35-expanded');
-            
-            // Asegurar que esté por encima de todo
-            photo35.style.zIndex = '9999';
-            
-            // Deshabilitar scroll temporalmente
-            document.body.style.overflow = 'hidden';
-            
-            console.log('🌟 Foto 35 expandida - La más importante');
-            
-            // Reproducir sonido especial
-            playPhoto35Sound();
-        }
-
-        function minimizePhoto35Func() {
-            if (!isPhoto35Expanded) return;
-            
-            isPhoto35Expanded = false;
-            photo35.classList.remove('photo35-expanded');
-            
-            // Restaurar z-index normal (pero alto para que siga destacando)
-            photo35.style.zIndex = '50';
-            
-            // Habilitar scroll
-            document.body.style.overflow = '';
-            
-            console.log('📷 Foto 35 minimizada');
-        }
-
-        // ==============================
         // EVENT LISTENERS
         // ==============================
         document.addEventListener('DOMContentLoaded', function() {
@@ -2103,8 +2092,6 @@
                     } else if (e.key === 'Escape') {
                         skipPresentationFunc();
                     }
-                } else if (isPhoto35Expanded && e.key === 'Escape') {
-                    minimizePhoto35Func();
                 }
             });
             
@@ -2146,7 +2133,7 @@
             
             // Crear partículas
             const particleColors = ['#FF6B6B', '#FFD700', '#4ecdc4', '#45b7d1'];
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 15; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
@@ -2158,7 +2145,7 @@
                 particle.style.backgroundColor = particleColors[Math.floor(Math.random() * particleColors.length)];
                 
                 // Tamaño aleatorio
-                const size = 4 + Math.random() * 8;
+                const size = 3 + Math.random() * 6;
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 
@@ -2169,19 +2156,19 @@
             }
             
             // Crear números 18 flotantes
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 4; i++) {
                 const number18 = document.createElement('div');
                 number18.className = 'floating-18';
                 number18.textContent = '18';
                 
                 // Posición aleatoria
-                number18.style.left = (10 + Math.random() * 80) + '%';
+                number18.style.left = (15 + Math.random() * 70) + '%';
                 
                 // Retardo de animación
-                number18.style.animationDelay = (i * 1.2) + 's';
+                number18.style.animationDelay = (i * 1.5) + 's';
                 
                 // Tamaño aleatorio
-                const fontSize = 1.5 + Math.random() * 1;
+                const fontSize = 1.2 + Math.random() * 0.8;
                 number18.style.fontSize = fontSize + 'rem';
                 
                 photo35.appendChild(number18);
@@ -2192,13 +2179,13 @@
         // ZOOM DE FOTOS
         // ==============================
         function setupPhotoZoom() {
-            const photoFrames = document.querySelectorAll('.photo-frame:not(#photo35)'); // Excluir foto 35
+            const photoFrames = document.querySelectorAll('.photo-frame');
             const photoZoomOverlay = document.getElementById('photoZoomOverlay');
             const zoomedPhoto = document.getElementById('zoomedPhoto');
             const zoomCaption = document.getElementById('zoomCaption');
             const closeZoom = document.getElementById('closeZoom');
             
-            // Agregar evento a cada foto (excepto foto 35)
+            // Agregar evento a cada foto
             photoFrames.forEach(frame => {
                 frame.addEventListener('click', function(e) {
                     // Obtener la imagen y su descripción
@@ -2219,6 +2206,11 @@
                     
                     // Reproducir sonido de clic
                     playClickSound();
+                    
+                    // Efecto especial para foto 35
+                    if (this.id === 'photo35') {
+                        playPhoto35Sound();
+                    }
                 });
             });
             
@@ -2307,7 +2299,7 @@
         window.addEventListener('load', function() {
             // Globos
             const colors = ['🎈', '🎉', '🎊', '⭐', '✨'];
-            const balloonCount = 25;
+            const balloonCount = 20;
             
             for (let i = 0; i < balloonCount; i++) {
                 const balloon = document.createElement('div');
@@ -2321,7 +2313,7 @@
 
             // Confetti
             const confettiColors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dfe6e9'];
-            const confettiCount = 40;
+            const confettiCount = 35;
             
             for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
@@ -2388,10 +2380,8 @@
             document.querySelectorAll('.photo-frame').forEach(frame => {
                 frame.style.cursor = 'pointer';
                 frame.addEventListener('touchstart', function() {
-                    if (!this.classList.contains('photo35-expanded')) {
-                        this.style.transform = 'scale(0.98)';
-                        this.style.transition = 'transform 0.1s';
-                    }
+                    this.style.transform = 'scale(0.98)';
+                    this.style.transition = 'transform 0.1s';
                 });
                 frame.addEventListener('touchend', function() {
                     this.style.transform = 'scale(1)';
