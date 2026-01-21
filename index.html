@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Feliz Cumpleaños Emmanuel - 18 Años</title>
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -130,27 +132,26 @@
             font-weight: bold;
         }
 
-        /* FONDO DE PRESENTACIÓN CON GLOBOS Y FIESTA */
+        /* PARTICLES CONTAINER PARA PRESENTACIÓN */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: linear-gradient(135deg, #ff3366 0%, #ff9966 25%, #ffff66 50%, #66ff66 75%, #3366ff 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+        }
+
+        /* PRESENTACIÓN FOTO POR FOTO CON PARTICLES */
         .presentation-slider {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                /* Globos de colores */
-                radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 90% 10%, rgba(0, 255, 0, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 20% 80%, rgba(0, 0, 255, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 80% 90%, rgba(255, 255, 0, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 50% 30%, rgba(255, 0, 255, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 30% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 70% 70%, rgba(255, 165, 0, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 40% 10%, rgba(128, 0, 128, 0.4) 0%, transparent 25%),
-                /* Fondo festivo */
-                linear-gradient(135deg, #ff3366 0%, #ff9966 25%, #ffff66 50%, #66ff66 75%, #3366ff 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 20s ease infinite;
             z-index: 2002;
             display: flex;
             flex-direction: column;
@@ -160,48 +161,6 @@
             visibility: visible;
             transition: opacity 0.5s ease-out;
             overflow: hidden;
-        }
-
-        /* Elementos decorativos de globos */
-        .presentation-slider::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(255,0,0,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(0,255,0,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(0,0,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(255,255,0,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="50" fill="rgba(255,0,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><polyline points="50,100 50,150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg>');
-            background-repeat: repeat;
-            background-size: 120px 150px, 100px 130px, 140px 160px, 110px 140px, 130px 150px;
-            background-position: 
-                10% 10%,
-                80% 20%,
-                20% 80%,
-                70% 70%,
-                40% 40%,
-                60% 60%;
-            animation: floatBalloons 30s linear infinite;
-            opacity: 0.6;
-            z-index: 1;
-        }
-
-        .presentation-slider::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
-                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
-            z-index: 1;
         }
 
         .presentation-slider.hidden {
@@ -215,7 +174,7 @@
             max-width: 800px;
             position: relative;
             text-align: center;
-            z-index: 2;
+            z-index: 3;
         }
 
         .slide-image {
@@ -229,7 +188,7 @@
             display: none;
             background-color: white;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         /* IMAGEN 1 TRANSPARENTE */
@@ -259,7 +218,7 @@
             line-height: 1.5;
             animation: fadeIn 1s ease-out;
             position: relative;
-            z-index: 2;
+            z-index: 3;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
@@ -275,7 +234,7 @@
             font-size: 1.3rem;
             border: 2px solid #FF6B6B;
             font-weight: bold;
-            z-index: 2;
+            z-index: 3;
         }
 
         .slide-nav {
@@ -286,7 +245,7 @@
             justify-content: space-between;
             transform: translateY(-50%);
             padding: 0 20px;
-            z-index: 2;
+            z-index: 3;
         }
 
         .slide-btn {
@@ -303,7 +262,7 @@
             justify-content: center;
             transition: all 0.3s;
             opacity: 0.9;
-            z-index: 2;
+            z-index: 3;
         }
 
         .slide-btn:hover {
@@ -328,7 +287,7 @@
             transition: all 0.3s;
             animation: pulse 2s infinite;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .start-presentation:hover {
@@ -349,7 +308,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
-            z-index: 2;
+            z-index: 3;
         }
 
         .skip-presentation:hover {
@@ -367,50 +326,6 @@
             }
             100% {
                 background-position: 0% 50%;
-            }
-        }
-
-        /* Animación para los globos */
-        @keyframes floatBalloons {
-            0% {
-                background-position: 
-                    10% 10%,
-                    80% 20%,
-                    20% 80%,
-                    70% 70%,
-                    40% 40%;
-            }
-            25% {
-                background-position: 
-                    15% 15%,
-                    75% 25%,
-                    25% 75%,
-                    65% 65%,
-                    45% 45%;
-            }
-            50% {
-                background-position: 
-                    20% 20%,
-                    70% 30%,
-                    30% 70%,
-                    60% 60%,
-                    50% 50%;
-            }
-            75% {
-                background-position: 
-                    15% 15%,
-                    75% 25%,
-                    25% 75%,
-                    65% 65%,
-                    45% 45%;
-            }
-            100% {
-                background-position: 
-                    10% 10%,
-                    80% 20%,
-                    20% 80%,
-                    70% 70%,
-                    40% 40%;
             }
         }
 
@@ -522,15 +437,15 @@
             transform: scale(1.1);
         }
 
-        /* DEDICATORIA COMPACTA */
+        /* DEDICATORIA CENTRADA */
         .dedication-box {
             max-width: 1000px;
             margin: 30px auto;
             background: rgba(0,0,0,0.9);
-            padding: clamp(20px, 5vw, 35px);
-            border-radius: 20px;
-            text-align: left;
-            border: 4px solid #FFD700;
+            padding: clamp(25px, 5vw, 40px);
+            border-radius: 25px;
+            text-align: center;
+            border: 5px solid #FFD700;
             width: 100%;
             opacity: 0;
             transform: translateY(20px);
@@ -545,18 +460,18 @@
         }
 
         .dedication-title {
-            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
             color: #FFD700;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: bold;
             text-shadow: 2px 2px 0 #000;
         }
 
         .dedication-text {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             color: #fff;
-            line-height: 1.5;
+            line-height: 1.6;
             text-shadow: 1px 1px 0 #000;
             word-wrap: break-word;
         }
@@ -565,12 +480,14 @@
             list-style-type: none;
             padding-left: 0;
             margin: 0;
+            display: inline-block;
+            text-align: left;
         }
 
         .dedication-text li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             position: relative;
-            padding-left: 30px;
+            padding-left: 35px;
         }
 
         .dedication-text li::before {
@@ -578,7 +495,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
         .dedication-text li:last-child {
@@ -586,18 +503,19 @@
         }
 
         .dedication-signature {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 2px solid #FFD700;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 3px solid #FFD700;
             text-align: center;
         }
 
         .signature-name {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1.3rem, 3vw, 2rem);
             color: #FF6B6B;
             font-weight: bold;
             text-shadow: 2px 2px 0 #000;
             font-style: italic;
+            text-align: center;
         }
 
         /* GALERÍA DE FOTOS (después de la dedicatoria) */
@@ -662,11 +580,73 @@
         .photo-frame:nth-child(20) { animation-delay: 2.0s; }
         .photo-frame:nth-child(21) { animation-delay: 2.1s; }
 
-        /* FOTO 35 - ESPECIAL CON GLOW Y ANIMACIONES */
+        /* FOTO 35 - ESPECIAL - MÁS IMPORTANTE - SIEMPRE VISIBLE */
         .photo-frame:nth-child(20) {
             border: 8px solid #FF6B6B;
             animation: photo35Glow 3s infinite alternate, slideUp 0.8s ease-out forwards;
             animation-delay: 0s, 1.9s;
+            position: relative;
+            z-index: 50 !important; /* VALOR MUY ALTO PARA SOBREPONERSE */
+            grid-column: 1 / -1; /* OCUPA TODA LA FILA */
+        }
+
+        /* FOTO 35 AMPLIADA Y SOBREPUESTA */
+        .photo-frame.photo35-expanded {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) scale(1.2) !important;
+            width: 90vw !important;
+            height: auto !important;
+            max-width: 800px !important;
+            z-index: 9999 !important;
+            animation: photo35Expand 0.5s ease-out forwards !important;
+            border: 10px solid #FFD700 !important;
+            box-shadow: 
+                0 0 60px #FF6B6B,
+                0 0 100px rgba(255, 107, 107, 0.8), 
+                0 0 150px rgba(255, 107, 107, 0.6) !important;
+        }
+
+        @keyframes photo35Expand {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Botón para minimizar la foto 35 */
+        .minimize-photo35 {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 107, 107, 0.95);
+            border: 3px solid #FFD700;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .photo-frame.photo35-expanded .minimize-photo35 {
+            display: flex;
+        }
+
+        .minimize-photo35:hover {
+            transform: scale(1.1);
+            background: rgba(255, 107, 107, 1);
         }
 
         @keyframes photo35Glow {
@@ -733,6 +713,7 @@
             .photo-frame:nth-child(20):hover {
                 transform: scale(1.1) rotate(2deg);
                 animation: photo35Hover 0.5s infinite alternate;
+                z-index: 200 !important;
             }
         }
 
@@ -754,6 +735,11 @@
             display: block;
             flex-shrink: 0;
             transition: transform 0.5s, filter 0.5s;
+        }
+
+        /* FOTO 35 - IMAGEN MÁS GRANDE */
+        .photo-frame:nth-child(20) img {
+            height: 450px; /* MÁS ALTA QUE LAS OTRAS */
         }
 
         /* Indicador de clic */
@@ -788,6 +774,8 @@
             color: white;
             font-size: 1.8rem;
             animation: pulseIndicator 1.5s infinite;
+            width: 50px;
+            height: 50px;
         }
 
         @keyframes pulseIndicator {
@@ -824,10 +812,12 @@
             background: linear-gradient(45deg, #FF6B6B, #FF3333, #FF6B6B);
             background-size: 200% 200%;
             color: #FFF;
-            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            font-size: clamp(1.2rem, 2.8vw, 1.7rem);
             font-weight: bold;
             border-top: 4px solid #FFD700;
             animation: captionGradient 3s infinite linear;
+            min-height: 110px;
+            padding: 20px;
         }
 
         @keyframes captionGradient {
@@ -1193,6 +1183,20 @@
                 height: 350px;
             }
 
+            /* FOTO 35 MÓVIL */
+            .photo-frame:nth-child(20) {
+                grid-column: 1;
+            }
+
+            .photo-frame:nth-child(20) img {
+                height: 400px;
+            }
+
+            .photo-frame.photo35-expanded {
+                width: 95vw !important;
+                transform: translate(-50%, -50%) scale(1) !important;
+            }
+
             .floating-18 {
                 font-size: 1.5rem;
             }
@@ -1233,13 +1237,13 @@
             }
             
             .dedication-box {
-                padding: 15px;
+                padding: 20px;
                 margin: 20px auto;
             }
             
             .dedication-text li {
-                padding-left: 25px;
-                margin-bottom: 6px;
+                padding-left: 30px;
+                margin-bottom: 8px;
             }
             
             /* Mejoras para dispositivos móviles */
@@ -1294,6 +1298,11 @@
                 height: 320px;
             }
 
+            /* FOTO 35 MÓVIL PEQUEÑO */
+            .photo-frame:nth-child(20) img {
+                height: 380px;
+            }
+
             .floating-18 {
                 font-size: 1.2rem;
             }
@@ -1307,8 +1316,8 @@
             }
 
             .photo-frame:nth-child(20) .click-indicator {
-                width: 35px;
-                height: 35px;
+                width: 40px;
+                height: 40px;
                 font-size: 1.3rem;
             }
 
@@ -1351,15 +1360,15 @@
             }
             
             .dedication-box {
-                padding: 12px;
+                padding: 15px;
                 margin: 15px auto;
                 border-radius: 15px;
             }
             
             .dedication-text li {
-                padding-left: 20px;
-                margin-bottom: 5px;
-                font-size: 0.9rem;
+                padding-left: 25px;
+                margin-bottom: 6px;
+                font-size: 1rem;
             }
             
             /* Mejoras adicionales para móviles pequeños */
@@ -1397,9 +1406,12 @@
         🔊
     </div>
 
-    <!-- PRESENTACIÓN FOTO POR FOTO -->
+    <!-- PRESENTACIÓN FOTO POR FOTO CON PARTICLES -->
     <div class="presentation-slider" id="presentationSlider">
         <button class="skip-presentation" id="skipPresentation">Saltar presentación</button>
+        
+        <!-- Contenedor de particles.js -->
+        <div id="particles-js"></div>
         
         <div class="slide-container">
             <img class="slide-image active" src="1.jpeg" alt="Feliz Cumpleaños">
@@ -1487,7 +1499,7 @@
             </div>
         </div>
 
-        <!-- DEDICATORIA COMPACTA -->
+        <!-- DEDICATORIA CENTRADA -->
         <div class="dedication-box" id="dedicationBox">
             <div class="dedication-title">🎂 DEDICATORIA ESPECIAL 🎂</div>
             <div class="dedication-text">
@@ -1609,9 +1621,11 @@
                 <div class="photo-caption">🌟 Eres un joven ejemplar, con valores y principios sólidos 🌟</div>
             </div>
             
-            <!-- FOTO 35 - ESPECIAL CON ANIMACIONES -->
+            <!-- FOTO 35 - LA MÁS IMPORTANTE - NO DESAPARECE -->
             <div class="photo-frame" id="photo35">
                 <div class="click-indicator">🌟</div>
+                <!-- Botón para minimizar cuando esté expandida -->
+                <div class="minimize-photo35" id="minimizePhoto35">✕</div>
                 <!-- Partículas y números 18 se agregan con JavaScript -->
                 <img src="35.jpeg" alt="Emmanuel actual" loading="lazy">
                 <div class="photo-caption">🌟 ERES UN JOVEN INCREÍBLE. ¡ME SIENTO MUY ORGULLOSO DE TI! 🌟</div>
@@ -1650,12 +1664,15 @@
         const photoGallery = document.getElementById('photoGallery');
         const footer = document.getElementById('footer');
         const videoBackground = document.getElementById('videoBackground');
+        const minimizePhoto35 = document.getElementById('minimizePhoto35');
+        const photo35 = document.getElementById('photo35');
         
         let audioPlaying = false;
         let audioStarted = false;
         let presentationActive = true;
         let currentSlide = 0;
         const totalSlides = document.querySelectorAll('.slide-image').length;
+        let isPhoto35Expanded = false;
         
         // Textos para cada slide de la presentación
         const slideCaptions = [
@@ -1682,6 +1699,108 @@
             "🌟 ERES UN JOVEN INCREÍBLE. ¡ME SIENTO MUY ORGULLOSO DE TI! 🌟",
             "🎓 Este será otro gran logro en tu vida, Emmanuel. 🎓"
         ];
+
+        // ==============================
+        // PARTICLES.JS CONFIGURACIÓN
+        // ==============================
+        function initParticles() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {
+                            value: 150,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: ['#ff3366', '#ff9966', '#ffff66', '#66ff66', '#3366ff', '#9966ff', '#ff66ff']
+                        },
+                        shape: {
+                            type: ['circle', 'triangle', 'polygon'],
+                            stroke: {
+                                width: 0,
+                                color: '#000000'
+                            },
+                            polygon: {
+                                nb_sides: 5
+                            }
+                        },
+                        opacity: {
+                            value: 0.7,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 8,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 5,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#ffffff',
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 3,
+                            direction: 'none',
+                            random: true,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false,
+                            attract: {
+                                enable: false,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: 'grab'
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+                console.log('✅ Particles.js inicializado correctamente');
+            } else {
+                console.log('❌ Particles.js no cargado');
+            }
+        }
 
         // ==============================
         // FUNCIONES DE PRESENTACIÓN
@@ -1739,6 +1858,9 @@
             // Mostrar primera foto
             showSlide(0);
             
+            // Inicializar particles.js
+            setTimeout(initParticles, 500);
+            
             // Mostrar notificación de audio
             setTimeout(() => {
                 audioNotice.classList.add('show');
@@ -1783,6 +1905,9 @@
                             
                             // Configurar video para autoplay
                             setupVideoAutoplay();
+                            
+                            // Configurar evento especial para foto 35
+                            setupPhoto35Special();
                             
                         }, 300); // Delay para galería
                     }, 300); // Delay para dedicatoria
@@ -1830,11 +1955,8 @@
                 bgAudio.pause();
                 audioPlaying = false;
                 audioControl.textContent = '🔇';
-                audioControl.title = 'Reproducir música de fondo';
-                console.log('⏸️ Audio pausado permanentemente');
-                
-                // Cambiar el comportamiento del control de audio
                 audioControl.title = 'Música pausada por video. Toca para reproducir música de fondo';
+                console.log('⏸️ Audio pausado permanentemente');
             }
         }
 
@@ -1901,6 +2023,67 @@
         }
 
         // ==============================
+        // FOTO 35 ESPECIAL - NO DESAPARECE
+        // ==============================
+        function setupPhoto35Special() {
+            if (!photo35) return;
+            
+            // Click en foto 35 para expandirla
+            photo35.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                if (!isPhoto35Expanded) {
+                    // Expandir foto 35
+                    expandPhoto35();
+                }
+            });
+            
+            // Botón para minimizar
+            minimizePhoto35.addEventListener('click', function(e) {
+                e.stopPropagation();
+                minimizePhoto35Func();
+            });
+            
+            // También permitir minimizar haciendo clic fuera cuando está expandida
+            document.addEventListener('click', function(e) {
+                if (isPhoto35Expanded && !photo35.contains(e.target)) {
+                    minimizePhoto35Func();
+                }
+            });
+        }
+
+        function expandPhoto35() {
+            isPhoto35Expanded = true;
+            photo35.classList.add('photo35-expanded');
+            
+            // Asegurar que esté por encima de todo
+            photo35.style.zIndex = '9999';
+            
+            // Deshabilitar scroll temporalmente
+            document.body.style.overflow = 'hidden';
+            
+            console.log('🌟 Foto 35 expandida - La más importante');
+            
+            // Reproducir sonido especial
+            playPhoto35Sound();
+        }
+
+        function minimizePhoto35Func() {
+            if (!isPhoto35Expanded) return;
+            
+            isPhoto35Expanded = false;
+            photo35.classList.remove('photo35-expanded');
+            
+            // Restaurar z-index normal (pero alto para que siga destacando)
+            photo35.style.zIndex = '50';
+            
+            // Habilitar scroll
+            document.body.style.overflow = '';
+            
+            console.log('📷 Foto 35 minimizada');
+        }
+
+        // ==============================
         // EVENT LISTENERS
         // ==============================
         document.addEventListener('DOMContentLoaded', function() {
@@ -1920,6 +2103,8 @@
                     } else if (e.key === 'Escape') {
                         skipPresentationFunc();
                     }
+                } else if (isPhoto35Expanded && e.key === 'Escape') {
+                    minimizePhoto35Func();
                 }
             });
             
@@ -1952,7 +2137,6 @@
         // ANIMACIONES ESPECIALES PARA FOTO 35
         // ==============================
         function createPhoto35Animations() {
-            const photo35 = document.getElementById('photo35');
             if (!photo35) return;
             
             // Crear contenedor de partículas
@@ -2002,26 +2186,19 @@
                 
                 photo35.appendChild(number18);
             }
-            
-            // Efecto de sonido al tocar la foto 35
-            photo35.addEventListener('click', function() {
-                if (audioPlaying) {
-                    playPhoto35Sound();
-                }
-            });
         }
 
         // ==============================
         // ZOOM DE FOTOS
         // ==============================
         function setupPhotoZoom() {
-            const photoFrames = document.querySelectorAll('.photo-frame');
+            const photoFrames = document.querySelectorAll('.photo-frame:not(#photo35)'); // Excluir foto 35
             const photoZoomOverlay = document.getElementById('photoZoomOverlay');
             const zoomedPhoto = document.getElementById('zoomedPhoto');
             const zoomCaption = document.getElementById('zoomCaption');
             const closeZoom = document.getElementById('closeZoom');
             
-            // Agregar evento a cada foto
+            // Agregar evento a cada foto (excepto foto 35)
             photoFrames.forEach(frame => {
                 frame.addEventListener('click', function(e) {
                     // Obtener la imagen y su descripción
@@ -2042,11 +2219,6 @@
                     
                     // Reproducir sonido de clic
                     playClickSound();
-                    
-                    // Efecto especial para foto 35
-                    if (this.id === 'photo35') {
-                        playPhoto35Sound();
-                    }
                 });
             });
             
@@ -2189,6 +2361,11 @@
             
             // Intentar cargar video de fondo después de que todo cargue
             setTimeout(loadBackgroundVideo, 2000);
+            
+            // Inicializar particles.js si ya está en presentación
+            if (presentationActive) {
+                setTimeout(initParticles, 1000);
+            }
         });
 
         // ==============================
@@ -2211,8 +2388,10 @@
             document.querySelectorAll('.photo-frame').forEach(frame => {
                 frame.style.cursor = 'pointer';
                 frame.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                    this.style.transition = 'transform 0.1s';
+                    if (!this.classList.contains('photo35-expanded')) {
+                        this.style.transform = 'scale(0.98)';
+                        this.style.transition = 'transform 0.1s';
+                    }
                 });
                 frame.addEventListener('touchend', function() {
                     this.style.transform = 'scale(1)';
