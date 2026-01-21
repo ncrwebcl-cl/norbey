@@ -252,8 +252,8 @@
             background: rgba(255, 215, 0, 0.9);
             border: 3px solid #8B4513;
             border-radius: 50%;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             font-size: 2.5rem;
             color: #8B4513;
             cursor: pointer;
@@ -263,6 +263,7 @@
             transition: all 0.3s;
             opacity: 0.9;
             z-index: 3;
+            text-align: center;
         }
 
         .slide-btn:hover {
@@ -275,19 +276,21 @@
             background: linear-gradient(45deg, #FF3366, #FFD700);
             border: 4px solid white;
             border-radius: 50px;
-            padding: 20px 50px;
-            font-size: 1.8rem;
+            padding: 20px 40px;
+            font-size: 1.5rem;
             color: white;
             cursor: pointer;
             margin-top: 40px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: all 0.3s;
             animation: pulse 2s infinite;
             position: relative;
             z-index: 3;
+            text-align: center;
+            white-space: normal;
+            line-height: 1.4;
         }
 
         .start-presentation:hover {
@@ -314,6 +317,14 @@
         .skip-presentation:hover {
             transform: scale(1.1);
             background: rgba(255, 107, 107, 1);
+        }
+
+        /* Para el botón de siguiente con texto en la primera diapositiva */
+        #nextBtn.multiline {
+            font-size: 1.2rem !important;
+            line-height: 1.2 !important;
+            padding-top: 10px;
+            white-space: pre-line;
         }
 
         /* Animación para el fondo gradiente */
@@ -595,7 +606,7 @@
             border-radius: 15px;
             border: 2px solid rgba(78, 205, 196, 0.5);
             box-shadow: 
-                0 0 20px rgba(78, 205, 196, 0.5),
+                0 0 20px rgba(78, 205,196, 0.5),
                 0 0 40px rgba(45, 213, 252, 0.3);
             margin: 15px 0;
         }
@@ -1376,9 +1387,15 @@
             }
             
             .slide-btn {
-                width: 55px;
-                height: 55px;
+                width: 65px;
+                height: 65px;
                 font-size: 2rem;
+            }
+            
+            #nextBtn.multiline {
+                font-size: 0.9rem !important;
+                line-height: 1.1 !important;
+                padding-top: 5px;
             }
             
             .slide-counter {
@@ -1388,8 +1405,9 @@
             }
             
             .start-presentation {
-                padding: 15px 40px;
-                font-size: 1.5rem;
+                padding: 15px 30px;
+                font-size: 1.2rem;
+                line-height: 1.3;
             }
             
             .skip-presentation {
@@ -1491,13 +1509,13 @@
             
             /* Mejoras para dispositivos móviles */
             .slide-btn {
-                min-width: 60px;
-                min-height: 60px;
+                min-width: 65px;
+                min-height: 65px;
             }
             
             .audio-control {
-                min-width: 60px;
-                min-height: 60px;
+                min-width: 55px;
+                min-height: 55px;
             }
         }
 
@@ -1512,10 +1530,15 @@
             }
             
             .slide-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.5rem;
-                padding: 0 5px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            
+            #nextBtn.multiline {
+                font-size: 0.8rem !important;
+                line-height: 1 !important;
+                padding-top: 3px;
             }
             
             .slide-counter {
@@ -1525,8 +1548,9 @@
             }
             
             .start-presentation {
-                padding: 12px 30px;
-                font-size: 1.2rem;
+                padding: 12px 20px;
+                font-size: 1rem;
+                line-height: 1.2;
                 margin-top: 30px;
             }
             
@@ -1706,12 +1730,13 @@
         </div>
         
         <div class="slide-caption" id="slideCaption">
-            ¡Bienvenido a tu presentación de cumpleaños! Toca "Siguiente" para ver los recuerdos.
+            ¡Bienvenido a tu presentación de cumpleaños!<br>Usa los botones o las flechas del teclado (← →) para navegar.
         </div>
         <div class="slide-counter" id="slideCounter">1/22</div>
         
         <button class="start-presentation" id="startPresentation">
-            Iniciar Presentación
+            ¡Haz clic aquí para comenzar!<br>
+            (Usa las flechas ← → o el botón Siguiente)
         </button>
     </div>
 
@@ -1945,7 +1970,7 @@
         
         // Textos para cada slide de la presentación
         const slideCaptions = [
-            "¡Bienvenido a tu presentación de cumpleaños! Toca 'Siguiente' para ver los recuerdos.",
+            "¡Bienvenido a tu presentación de cumpleaños!<br>Usa los botones o las flechas del teclado (← →) para navegar.",
             "💝 Cuando eras tan pequeñito... ¡Qué tiernos recuerdos!",
             "👨‍👦 Compartiendo tus primeros meses de vida",
             "🚶‍♂️ Explorando el mundo, creando aventuras",
@@ -2081,7 +2106,7 @@
             document.querySelectorAll('.slide-image')[n].classList.add('active');
             
             // Actualizar texto y contador
-            document.getElementById('slideCaption').textContent = slideCaptions[n];
+            document.getElementById('slideCaption').innerHTML = slideCaptions[n];
             document.getElementById('slideCounter').textContent = `${n + 1}/${totalSlides}`;
             
             currentSlide = n;
@@ -2089,13 +2114,26 @@
             // Mostrar/ocultar botones según posición
             document.getElementById('prevBtn').style.visibility = (n === 0) ? 'hidden' : 'visible';
             
-            // Si es la última foto, cambiar texto del botón siguiente
-            if (n === totalSlides - 1) {
-                document.getElementById('nextBtn').textContent = '🎉 Finalizar 🎉';
-                document.getElementById('nextBtn').style.fontSize = '1.8rem';
+            // Cambiar texto del botón siguiente según la diapositiva
+            const nextBtn = document.getElementById('nextBtn');
+            if (n === 0) {
+                // Primera diapositiva: mostrar "Siguiente" con flecha
+                nextBtn.innerHTML = 'Siguiente<br>→';
+                nextBtn.classList.add('multiline');
+                nextBtn.style.fontSize = '1.2rem';
+                nextBtn.style.lineHeight = '1.2';
+            } else if (n === totalSlides - 1) {
+                // Última diapositiva: mostrar "Finalizar"
+                nextBtn.textContent = '🎉 Finalizar 🎉';
+                nextBtn.classList.remove('multiline');
+                nextBtn.style.fontSize = '1.5rem';
+                nextBtn.style.lineHeight = '1';
             } else {
-                document.getElementById('nextBtn').textContent = '›';
-                document.getElementById('nextBtn').style.fontSize = '2.5rem';
+                // Diapositivas intermedias: mostrar solo flecha
+                nextBtn.textContent = '›';
+                nextBtn.classList.remove('multiline');
+                nextBtn.style.fontSize = '2.5rem';
+                nextBtn.style.lineHeight = '1';
             }
         }
 
