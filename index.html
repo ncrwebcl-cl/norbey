@@ -14,7 +14,7 @@
         body {
             font-family: 'Arial', sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #1a5f7a 0%, #57a0d3 50%, #87ceeb 100%);
+            background: linear-gradient(135deg, #e0f7ff 0%, #b3e0ff 50%, #87ceeb 100%);
             width: 100%;
             min-height: 100vh;
             position: relative;
@@ -140,14 +140,20 @@
             font-weight: bold;
         }
 
-        /* PRESENTACIÓN FOTO POR FOTO */
+        /* PRESENTACIÓN FOTO POR FOTO - FONDO ESPECIAL */
         .presentation-slider {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a5f7a 0%, #57a0d3 50%, #87ceeb 100%);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(78, 205, 196, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #ffd166 0%, #ff6b6b 25%, #4ecdc4 50%, #45b7d1 75%, #96ceb4 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             z-index: 2002;
             display: flex;
             flex-direction: column;
@@ -156,6 +162,39 @@
             opacity: 1;
             visibility: visible;
             transition: opacity 0.5s ease-out;
+            overflow: hidden;
+        }
+
+        /* Elementos decorativos del fondo */
+        .presentation-slider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-size="8" fill="rgba(255,215,0,0.1)" text-anchor="middle" dominant-baseline="middle">18</text></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,107,107,0.1)"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 60,40 90,40 65,60 75,90 50,70 25,90 35,60 10,40 40,40" fill="rgba(255,215,0,0.1)"/></svg>');
+            background-repeat: repeat;
+            background-size: 200px, 150px, 180px;
+            animation: floatPattern 60s linear infinite;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .presentation-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 30%);
+            z-index: 1;
         }
 
         .presentation-slider.hidden {
@@ -169,6 +208,7 @@
             max-width: 800px;
             position: relative;
             text-align: center;
+            z-index: 2;
         }
 
         .slide-image {
@@ -180,6 +220,9 @@
             border: 8px solid #FFD700;
             animation: slideIn 0.8s ease-out;
             display: none;
+            background-color: white;
+            position: relative;
+            z-index: 2;
         }
 
         /* IMAGEN 1 TRANSPARENTE */
@@ -208,6 +251,9 @@
             font-weight: bold;
             line-height: 1.5;
             animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .slide-counter {
@@ -222,6 +268,7 @@
             font-size: 1.3rem;
             border: 2px solid #FF6B6B;
             font-weight: bold;
+            z-index: 2;
         }
 
         .slide-nav {
@@ -232,6 +279,7 @@
             justify-content: space-between;
             transform: translateY(-50%);
             padding: 0 20px;
+            z-index: 2;
         }
 
         .slide-btn {
@@ -248,6 +296,7 @@
             justify-content: center;
             transition: all 0.3s;
             opacity: 0.9;
+            z-index: 2;
         }
 
         .slide-btn:hover {
@@ -271,6 +320,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: all 0.3s;
             animation: pulse 2s infinite;
+            position: relative;
+            z-index: 2;
         }
 
         .start-presentation:hover {
@@ -291,11 +342,35 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
+            z-index: 2;
         }
 
         .skip-presentation:hover {
             transform: scale(1.1);
             background: rgba(255, 107, 107, 1);
+        }
+
+        /* Animación para el fondo gradiente */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Animación para los patrones decorativos */
+        @keyframes floatPattern {
+            0% {
+                background-position: 0 0, 100px 50px, 50px 100px;
+            }
+            100% {
+                background-position: 200px 200px, 300px 250px, 250px 300px;
+            }
         }
 
         @keyframes slideIn {
@@ -638,7 +713,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a5f7a 0%, #57a0d3 50%, #87ceeb 100%);
+            background: linear-gradient(135deg, #e0f7ff 0%, #b3e0ff 50%, #87ceeb 100%);
             z-index: 2000;
             display: none;
             justify-content: center;
@@ -662,6 +737,7 @@
             box-shadow: 0 0 50px rgba(255,215,0,0.5);
             transform: scale(0.9);
             transition: transform 0.3s;
+            background: white;
         }
 
         .photo-zoom-overlay.active .zoomed-photo-container {
@@ -718,7 +794,7 @@
             max-width: 1000px;
             margin: 50px auto;
             padding: 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 25px;
             border: 5px solid #FFD700;
             width: 100%;
@@ -727,6 +803,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
         .video-section.visible {
@@ -743,11 +820,11 @@
             font-weight: bold;
             text-shadow: 3px 3px 0 #000;
             word-wrap: break-word;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
         }
 
         .video-audio-notice {
-            background: rgba(255, 107, 107, 0.9);
+            background: rgba(255, 107, 107, 0.95);
             color: white;
             padding: 10px 15px;
             border-radius: 0;
@@ -1655,7 +1732,6 @@
         const mainVideo = document.getElementById('mainVideo');
         const videoAudioNotice = document.getElementById('videoAudioNotice');
         let videoStarted = false;
-        let audioPausedForVideo = false;
 
         // Observador para el video - pausa audio cuando llega
         const videoObserver = new IntersectionObserver((entries) => {
@@ -1667,11 +1743,10 @@
                     // Mostrar notificación
                     videoAudioNotice.classList.add('show');
                     
-                    // Pausar el audio de fondo
+                    // Pausar el audio de fondo (PERMANENTEMENTE hasta que el usuario lo active manualmente)
                     if (audioPlaying) {
                         pauseAudio();
-                        audioPausedForVideo = true;
-                        console.log('⏸️ Audio de fondo pausado para el video');
+                        console.log('⏸️ Audio de fondo pausado para el video - Solo se reanudará manualmente');
                     }
                     
                     // Activar autoplay del video después de un breve retraso
@@ -1699,16 +1774,14 @@
             rootMargin: '100px'
         });
 
-        // Observador para el mensaje - reanuda audio cuando llega
+        // Observador para el mensaje - NO reanuda audio automáticamente
         const messageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && audioPausedForVideo && !presentationActive) {
-                    // El usuario ha llegado al mensaje y el audio estaba pausado por el video
-                    setTimeout(() => {
-                        resumeAudio();
-                        audioPausedForVideo = false;
-                        console.log('🎵 Audio reanudado al llegar al mensaje especial');
-                    }, 500);
+                if (entry.isIntersecting && !presentationActive) {
+                    // El usuario ha llegado al mensaje
+                    // NOTA: No reanudamos el audio automáticamente
+                    // El usuario debe hacer clic manualmente en el control de audio para reanudar
+                    console.log('📝 Sección de mensaje visible - Audio permanece en su estado actual');
                 }
             });
         }, {
