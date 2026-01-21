@@ -377,20 +377,32 @@
         }
 
         .video-audio-notice {
-            background: rgba(255, 107, 107, 0.95);
+            background: linear-gradient(45deg, #FF6B6B, #FFD700, #FF6B6B);
+            background-size: 200% 200%;
             color: white;
-            padding: 10px 15px;
+            padding: 15px;
             border-radius: 0;
             text-align: center;
             margin-bottom: 0;
             font-weight: bold;
-            font-size: 1rem;
-            opacity: 0;
-            transition: opacity 0.5s;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            animation: gradientMove 3s infinite linear;
+            border-top: 3px solid #FFD700;
+            border-bottom: 3px solid #FFD700;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.7);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .video-audio-notice.show {
-            opacity: 1;
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .video-container {
@@ -526,9 +538,163 @@
             }
         }
 
-        /* NOMBRE ESPECIAL - BRILLANTE Y LLAMATIVO */
-        .dedication-signature {
+        /* MENSAJE DE CARIÑO */
+        .cariño-message {
             margin-top: 35px;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            animation: cariñoPulse 4s infinite;
+        }
+
+        @keyframes cariñoPulse {
+            0%, 100% { 
+                border-color: rgba(255, 215, 0, 0.3);
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+            }
+            50% { 
+                border-color: rgba(255, 107, 107, 0.5);
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+            }
+        }
+
+        .cariño-text {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: #FFD700;
+            font-weight: bold;
+            text-shadow: 2px 2px 3px #000;
+            margin-bottom: 20px;
+        }
+
+        /* NOMBRE EMMANUEL - AZUL BRILLANTE Y LLAMATIVO */
+        .emmanuel-name {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #4ECDC4;
+            font-weight: bold;
+            text-shadow: 
+                0 0 10px #4ECDC4,
+                0 0 20px #4ECDC4,
+                0 0 30px #4ECDC4,
+                0 0 40px #4ECDC4,
+                2px 2px 0 #000;
+            font-style: italic;
+            text-align: center;
+            letter-spacing: 1px;
+            animation: emmanuelGlow 3s infinite alternate, emmanuelFloat 5s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, 
+                rgba(78, 205, 196, 0.2) 0%, 
+                rgba(69, 183, 209, 0.2) 25%, 
+                rgba(45, 213, 252, 0.2) 50%, 
+                rgba(78, 205, 196, 0.2) 75%, 
+                rgba(69, 183, 209, 0.2) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(78, 205, 196, 0.5);
+            box-shadow: 
+                0 0 20px rgba(78, 205, 196, 0.5),
+                0 0 40px rgba(45, 213, 252, 0.3);
+            margin: 15px 0;
+        }
+
+        .emmanuel-emoji {
+            font-size: 1.5em;
+            animation: emojiSpin 4s infinite linear;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        @keyframes emojiSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.2); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes emmanuelGlow {
+            0% {
+                text-shadow: 
+                    0 0 10px #4ECDC4,
+                    0 0 20px #4ECDC4,
+                    0 0 30px #4ECDC4,
+                    0 0 40px #4ECDC4,
+                    2px 2px 0 #000;
+                color: #4ECDC4;
+                border-color: rgba(78, 205, 196, 0.8);
+                box-shadow: 
+                    0 0 20px rgba(78, 205, 196, 0.7),
+                    0 0 40px rgba(45, 213, 252, 0.5);
+            }
+            25% {
+                text-shadow: 
+                    0 0 15px #45B7D1,
+                    0 0 30px #45B7D1,
+                    0 0 45px #45B7D1,
+                    0 0 60px #45B7D1,
+                    2px 2px 0 #000;
+                color: #45B7D1;
+                border-color: rgba(69, 183, 209, 0.8);
+                box-shadow: 
+                    0 0 25px rgba(69, 183, 209, 0.8),
+                    0 0 50px rgba(78, 205, 196, 0.5);
+            }
+            50% {
+                text-shadow: 
+                    0 0 15px #2DD5FC,
+                    0 0 30px #2DD5FC,
+                    0 0 45px #2DD5FC,
+                    0 0 60px #2DD5FC,
+                    2px 2px 0 #000;
+                color: #2DD5FC;
+                border-color: rgba(45, 213, 252, 0.8);
+                box-shadow: 
+                    0 0 25px rgba(45, 213, 252, 0.8),
+                    0 0 50px rgba(69, 183, 209, 0.5);
+            }
+            75% {
+                text-shadow: 
+                    0 0 15px #4ECDC4,
+                    0 0 30px #4ECDC4,
+                    0 0 45px #4ECDC4,
+                    0 0 60px #4ECDC4,
+                    2px 2px 0 #000;
+                color: #4ECDC4;
+                border-color: rgba(78, 205, 196, 0.8);
+                box-shadow: 
+                    0 0 25px rgba(78, 205, 196, 0.8),
+                    0 0 50px rgba(45, 213, 252, 0.5);
+            }
+            100% {
+                text-shadow: 
+                    0 0 20px #2DD5FC,
+                    0 0 40px #2DD5FC,
+                    0 0 60px #2DD5FC,
+                    0 0 80px #2DD5FC,
+                    2px 2px 0 #000;
+                color: #2DD5FC;
+                border-color: rgba(45, 213, 252, 0.9);
+                box-shadow: 
+                    0 0 30px rgba(45, 213, 252, 0.9),
+                    0 0 60px rgba(78, 205, 196, 0.6);
+            }
+        }
+
+        @keyframes emmanuelFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.03);
+            }
+        }
+
+        /* NOMBRE NORBEY - DORADO BRILLANTE */
+        .dedication-signature {
+            margin-top: 40px;
             padding-top: 25px;
             border-top: 3px solid #FFD700;
             text-align: center;
@@ -682,6 +848,17 @@
             cursor: pointer;
         }
 
+        /* FOTO 35 - NO DESAPARECE - SIEMPRE VISIBLE */
+        #photo35 {
+            animation: photo35Glow 3s infinite alternate, slideUp 0.8s ease-out forwards !important;
+            animation-delay: 0s, 1.9s !important;
+            position: relative;
+            z-index: 50;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: flex !important;
+        }
+
         /* TIEMPO DE APARICIÓN */
         .photo-frame:nth-child(1) { animation-delay: 0.1s; }
         .photo-frame:nth-child(2) { animation-delay: 0.2s; }
@@ -704,15 +881,6 @@
         .photo-frame:nth-child(19) { animation-delay: 1.9s; }
         .photo-frame:nth-child(20) { animation-delay: 2.0s; }
         .photo-frame:nth-child(21) { animation-delay: 2.1s; }
-
-        /* FOTO 35 - IGUAL A LAS DEMÁS PERO CON EFECTOS ESPECIALES */
-        .photo-frame:nth-child(20) {
-            border: 6px solid #FF6B6B;
-            animation: photo35Glow 3s infinite alternate, slideUp 0.8s ease-out forwards;
-            animation-delay: 0s, 1.9s;
-            position: relative;
-            z-index: 50;
-        }
 
         @keyframes photo35Glow {
             0% {
@@ -775,7 +943,7 @@
                 filter: brightness(1.1);
             }
 
-            .photo-frame:nth-child(20):hover {
+            #photo35:hover {
                 transform: scale(1.1) rotate(2deg);
                 animation: photo35Hover 0.5s infinite alternate;
                 z-index: 200;
@@ -791,7 +959,7 @@
             }
         }
 
-        /* IMÁGENES - TODAS IGUALES INCLUYENDO FOTO 35 */
+        /* IMÁGENES - TODAS IGUALES */
         .photo-frame img {
             width: 100%;
             height: 380px;
@@ -829,7 +997,7 @@
         }
 
         /* Indicador especial para foto 35 */
-        .photo-frame:nth-child(20) .click-indicator {
+        #photo35 .click-indicator {
             background: rgba(255, 107, 107, 0.9);
             color: white;
             font-size: 1.8rem;
@@ -868,7 +1036,7 @@
         }
 
         /* Texto especial para foto 35 */
-        .photo-frame:nth-child(20) .photo-caption {
+        #photo35 .photo-caption {
             background: linear-gradient(45deg, #FF6B6B, #FF3333, #FF6B6B);
             background-size: 200% 200%;
             color: #FFF;
@@ -1251,7 +1419,7 @@
                 font-size: 1.3rem;
             }
 
-            .photo-frame:nth-child(20) .click-indicator {
+            #photo35 .click-indicator {
                 font-size: 1.5rem;
                 width: 40px;
                 height: 40px;
@@ -1282,6 +1450,11 @@
                 font-size: clamp(1.3rem, 4vw, 2.5rem);
             }
             
+            .video-audio-notice {
+                padding: 12px;
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            }
+            
             .dedication-box {
                 padding: 25px;
                 margin: 20px auto;
@@ -1295,6 +1468,20 @@
             .dedication-text p::before {
                 margin-right: 10px;
                 font-size: 1.2em;
+            }
+            
+            .cariño-text {
+                font-size: clamp(1.1rem, 3vw, 1.6rem);
+            }
+            
+            .emmanuel-name {
+                padding: 12px 20px;
+                font-size: clamp(1.5rem, 4vw, 2.2rem);
+            }
+            
+            .emmanuel-emoji {
+                font-size: 1.3em;
+                margin: 0 8px;
             }
             
             .signature-name {
@@ -1366,7 +1553,7 @@
                 right: 8px;
             }
 
-            .photo-frame:nth-child(20) .click-indicator {
+            #photo35 .click-indicator {
                 width: 35px;
                 height: 35px;
                 font-size: 1.3rem;
@@ -1398,8 +1585,8 @@
             }
             
             .video-audio-notice {
-                font-size: 0.9rem;
-                padding: 8px 10px;
+                padding: 10px;
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
             }
             
             .fullscreen-btn {
@@ -1425,6 +1612,20 @@
             .dedication-text p::before {
                 margin-right: 8px;
                 font-size: 1.1em;
+            }
+            
+            .cariño-text {
+                font-size: clamp(1rem, 3vw, 1.4rem);
+            }
+            
+            .emmanuel-name {
+                padding: 10px 15px;
+                font-size: clamp(1.3rem, 4vw, 1.8rem);
+            }
+            
+            .emmanuel-emoji {
+                font-size: 1.1em;
+                margin: 0 5px;
             }
             
             .signature-name {
@@ -1539,7 +1740,8 @@
         <div class="video-section" id="videoSection">
             <div class="video-title">🎮 VIDEO ESPECIAL MINECRAFT PARA EMMANUEL 🎮</div>
             
-            <div class="video-audio-notice" id="videoAudioNotice">
+            <!-- MENSAJE FIJO QUE NO DESAPARECE -->
+            <div class="video-audio-notice">
                 🎬🎉🎂 Video especial dedicado a ti por tus 18 años 🎂🎉 Atte.: Norbey 🎈🎉
             </div>
             
@@ -1560,7 +1762,7 @@
             </div>
         </div>
 
-        <!-- DEDICATORIA COMPLETAMENTE CENTRADA Y CON NOMBRE BRILLANTE -->
+        <!-- DEDICATORIA COMPLETAMENTE CENTRADA -->
         <div class="dedication-box" id="dedicationBox">
             <div class="dedication-title">🎂 DEDICATORIA ESPECIAL 🎂</div>
             
@@ -1572,8 +1774,24 @@
                 <p>Que este nuevo año te traiga mucha felicidad, éxito y bendiciones.</p>
                 <p>Ya eres mayor de edad, que comiences esta nueva etapa con fuerza.</p>
                 <p>¡FELIZ CUMPLEAÑOS! 🎈🎉🎁</p>
-                <p>18 de Enero de 2025</p>
                 
+                <!-- MENSAJE DE CARIÑO PARA EMMANUEL -->
+                <div class="cariño-message">
+                    <div class="cariño-text">CON TODO MI CARIÑO PARA:</div>
+                    
+                    <!-- NOMBRE EMMANUEL OCHOA DUQUE CON EMOJIS Y COLOR AZUL BRILLANTE -->
+                    <div class="emmanuel-name">
+                        <span class="emmanuel-emoji">🎂</span>
+                        <span class="emmanuel-emoji">🎉</span>
+                        <span class="emmanuel-emoji">🎁</span>
+                        EMMANUEL OCHOA DUQUE
+                        <span class="emmanuel-emoji">✨</span>
+                        <span class="emmanuel-emoji">🌟</span>
+                        <span class="emmanuel-emoji">⭐</span>
+                    </div>
+                </div>
+                
+                <!-- NOMBRE NORBEY CUERVO RAMIREZ -->
                 <div class="dedication-signature">
                     <div class="signature-name">NORBEY CUERVO RAMIREZ</div>
                 </div>
@@ -1681,7 +1899,7 @@
                 <div class="photo-caption">🌟 Eres un joven ejemplar, con valores y principios sólidos 🌟</div>
             </div>
             
-            <!-- FOTO 35 - IGUAL A LAS DEMÁS PERO CON EFECTOS ESPECIALES -->
+            <!-- FOTO 35 - NO DESAPARECE - SIEMPRE VISIBLE -->
             <div class="photo-frame" id="photo35">
                 <div class="click-indicator">🌟</div>
                 <!-- Partículas y números 18 se agregan con JavaScript -->
@@ -2049,13 +2267,9 @@
         // ==============================
         function setupVideoAutoplay() {
             const mainVideo = document.getElementById('mainVideo');
-            const videoAudioNotice = document.getElementById('videoAudioNotice');
             
             // Esperar un momento para que la sección sea visible
             setTimeout(() => {
-                // Mostrar notificación del video
-                videoAudioNotice.classList.add('show');
-                
                 // Configurar el video para autoplay
                 const currentSrc = mainVideo.src;
                 if (!currentSrc.includes('autoplay=1')) {
@@ -2064,11 +2278,6 @@
                 }
                 
                 console.log('🎮 Video de Minecraft iniciado automáticamente');
-                
-                // Ocultar notificación después de 5 segundos
-                setTimeout(() => {
-                    videoAudioNotice.classList.remove('show');
-                }, 5000);
             }, 1000);
         }
 
@@ -2132,7 +2341,7 @@
             photo35.appendChild(particlesContainer);
             
             // Crear partículas
-            const particleColors = ['#FF6B6B', '#FFD700', '#4ecdc4', '#45b7d1'];
+            const particleColors = ['#FF6B6B', '#FFD700', '#4ECDC4', '#45B7D1'];
             for (let i = 0; i < 15; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -2312,7 +2521,7 @@
             }
 
             // Confetti
-            const confettiColors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dfe6e9'];
+            const confettiColors = ['#ff6b6b', '#4ECDC4', '#45B7D1', '#96ceb4', '#ffeaa7', '#dfe6e9'];
             const confettiCount = 35;
             
             for (let i = 0; i < confettiCount; i++) {
@@ -2330,7 +2539,7 @@
                 const ageDisplay = document.querySelector('.age-display');
                 if (ageDisplay) {
                     ageDisplay.style.color = 
-                        ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7'][Math.floor(Math.random() * 5)];
+                        ['#ff6b6b', '#4ECDC4', '#45B7D1', '#96ceb4', '#ffeaa7'][Math.floor(Math.random() * 5)];
                 }
             }, 1000);
 
